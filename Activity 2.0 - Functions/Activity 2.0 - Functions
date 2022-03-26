@@ -1,0 +1,35 @@
+#include <stdio.h>
+int addGrades(int a, int b, int c, int d, int e);
+float divideGrades(float sum, float average);
+
+int main()
+{
+    int G1, G2, G3, G4, G5, sum;
+    float average;
+    
+    printf("Please Enter Your Grades:\n");
+    scanf("\n%d \n%d \n%d \n%d \n%d", &G1, &G2, &G3, &G4, &G5);
+    
+    sum = addGrades(G1, G2, G3, G4, G5);
+    average = divideGrades(sum, average);
+    
+    printf("Average = %.2f", average);
+
+    return 0;
+}
+
+    int addGrades (int a, int b, int c, int d, int e)
+    {
+        int result;
+        result = a + b + c + d + e;
+        return result;
+    }
+
+    float divideGrades (float sum, float average)
+
+    {
+        float fAverage;
+        fAverage = sum / 5;
+        return fAverage;
+    }
+
