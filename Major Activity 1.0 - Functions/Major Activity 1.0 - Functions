@@ -1,0 +1,87 @@
+#include <stdio.h>
+float DetermineChargeU(float UConsumed);
+float CalculateUnitCharge(float UConsumed, float Equivalent);
+float CalculateSurcharge(float CalculatedCharge);
+float TotalBill(float CalculatedCharge, float SurchCharge);
+
+int main()
+{
+    int CostumerID;
+    float UConsumed, Equivalent, CalculatedCharge, SurCharge, OverAllBill;
+    
+    printf("Greetings!\nThe T123 System is ready to help you.\nTo calculate your electric bill, please enter the following information.\n\nInput Costumer ID: ");
+    scanf("%d", &CostumerID);
+    printf("Input the Unit Consumed by the Costumer: ");
+    scanf("%f", &UConsumed);
+    
+    Equivalent = DetermineChargeU(UConsumed);
+    CalculatedCharge = CalculateUnitCharge(UConsumed,Equivalent);
+    SurCharge = CalculateSurcharge(CalculatedCharge);
+    OverAllBill = TotalBill(CalculatedCharge, SurCharge);
+    
+    if(OverAllBill >= 100)
+    {
+         printf("\n\nElectricity Bill]\n\n");
+         printf("Costumer ID                      : %d\n", CostumerID);
+         printf("Unit Consumed                    : %.2f\n", UConsumed);
+         printf("Unit Charges at P %.2f per unit  : P %.2f\n", Equivalent, CalculatedCharge);
+         printf("Surcharge Amount                 : P %.2f\n", SurCharge);
+         printf("\nTotal Costumer Bill              : P %.2f\n", OverAllBill);
+    }
+    else
+        printf("\n\nThe Minimum Bill Should be P 100.00.\nPlease Try Again.");
+    
+    
+    return 0;
+}
+
+    float DetermineChargeU(float UConsumed)
+    {
+        float Equivalent;
+        if(UConsumed > 199 && UConsumed < 250)
+        {
+            Equivalent = 1.50;
+        }
+        else if(UConsumed >= 250 && UConsumed < 450)
+        {
+            Equivalent = 1.60;
+        }
+        else if (UConsumed >= 450 && UConsumed < 600)
+        {
+            Equivalent = 1.85;
+        }
+        else if (UConsumed >= 600)
+        {
+            Equivalent = 2.00;
+        }
+        return Equivalent;
+    }
+    
+    float CalculateUnitCharge(float UConsumed, float Equivalent)
+    {
+        float CalculatedCharge;
+       CalculatedCharge = UConsumed * Equivalent;
+        return CalculatedCharge;
+    }
+    
+    float CalculateSurcharge(float CalculatedCharge)
+    {
+        float SurCharge;
+        if(CalculatedCharge > 400)
+        {
+            SurCharge = (CalculatedCharge * 10) / 100;
+        }
+        else if(CalculatedCharge < 400)
+        {
+            SurCharge = 0;
+        }
+        return SurCharge;
+    }
+    
+    float TotalBill(float CalculatedCharge, float SurCharge)
+    {
+        float OverAllBill;
+        OverAllBill = CalculatedCharge + SurCharge;
+        return OverAllBill;
+    }
+    
