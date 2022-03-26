@@ -71,7 +71,7 @@ int main()
         {
             SurCharge = (CalculatedCharge * 10) / 100;
         }
-        else if(CalculatedCharge < 400)
+        else if(CalculatedCharge <= 400)
         {
             SurCharge = 0;
         }
