@@ -5,18 +5,17 @@ int main()
     int IDnumber, PIN;
     
     printf("Enter ID Number: ");
-    scanf("%d", &IDnumber);
+        scanf("%d", &IDnumber);
     printf("Enter PIN: ");
-    scanf("%d", &PIN);
+        scanf("%d", &PIN);
     
-    for(int j = 0; j<3 ; j++)
-    {
+    for(int j = 0; j<3 ; j++){
         if (IDnumber == Acc[j][0] && PIN == Acc[j][1])
         {
              printf("\nYou have successfully logged in\nID#:%d",IDnumber);
              return 0;
         }
     }
-    printf("Invalid ID/PIN!");
+             printf("Invalid ID/PIN!");
     return 0;
 }
