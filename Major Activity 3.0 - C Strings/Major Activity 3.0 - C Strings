@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char Start[200], Reverse[200];
+    int i, Index;
+
+    printf("Enter any string: ");
+    scanf("%[^\n]s", Start);
+
+    int Length = strlen(Start);
+    Index = 0;
+
+    int WrdStart = Length - 1;
+    int WrdLast  = Length - 1;
+
+    while(WrdStart > 0)
+    {
+        
+        if(Start[WrdStart] == ' ')
+        {
+            
+            i = WrdStart + 1;
+            while(i <= WrdLast)
+            {
+            Reverse[Index] = Start[i];
+
+                i++;
+                Index++;
+            }
+            Reverse[Index++] = ' ';
+
+            WrdLast = WrdStart - 1;
+        }
+
+        WrdStart--;
+    }
+
+
+    for(i=0; i<=WrdLast; i++)
+    {
+        Reverse[Index] = Start[i];
+        Index++;
+    }
+
+    Reverse[Index] = '\0'; 
+
+
+    printf("Reverse Ordered Words: %s", Reverse);
+
+    return 0;
+}
