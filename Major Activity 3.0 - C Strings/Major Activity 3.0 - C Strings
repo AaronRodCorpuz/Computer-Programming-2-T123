@@ -44,9 +44,6 @@ int main()
         Index++;
     }
 
-    Reverse[Index] = '\0'; 
-
-
     printf("Reverse Ordered Words: %s", Reverse);
 
     return 0;
