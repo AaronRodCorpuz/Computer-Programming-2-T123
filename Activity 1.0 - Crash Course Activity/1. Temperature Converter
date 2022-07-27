@@ -1,0 +1,87 @@
+#include <stdio.h>
+
+int main()
+{
+    float orTemp;
+    float conTemp; 
+    char orScale;
+    char conScale; 
+    
+    printf("[F] - Fahrenheit\n[C] - Celsius\n[K] - Kelvin\n\nInput orignal temperature value: "); 
+    scanf("\n%f", &orTemp);
+    printf("Select orignal temperature scale: "); 
+    scanf("\n%c", &orScale);
+    printf("Select converted temperature scale: "); 
+    scanf("\n%c", &conScale); 
+    
+    if (orScale == 'F' || orScale == 'f')
+    {
+        if (conScale == 'F' || conScale == 'f')
+        {
+            conTemp = orTemp;
+        }
+        else if (conScale == 'C' || conScale =='c')
+        {
+            conTemp = (orTemp - 32) * 5 / 9;
+        }
+        else if (conScale == 'K' || conScale == 'k')
+        {
+            conTemp = (orTemp - 32) * 5 / 9 + 273.15;
+        }
+        else
+        {
+            printf("Please try again.\n%c is not a valid input", conScale);
+            return -1;
+        }
+
+    }
+    else if (orScale == 'C' || orScale == 'c')
+    {
+        if (conScale == 'F' || conScale =='f')
+        {
+            conTemp = (orTemp * 9/5) + 32;
+        }
+        else if (conScale == 'C' || conScale == 'c')
+        {
+            conTemp = orTemp;
+        }
+        else if (conScale == 'K' || conScale == 'k')
+        {
+            conTemp = orTemp + 273.15;
+        }
+        else 
+        {
+             printf("Please try again.\n%c is not a valid input", conScale);
+             return -1;
+        }
+    }
+    else if (orScale == 'K' || orScale == 'k')
+    {
+        if (conScale == 'F' || conScale == 'f')
+        {
+            conTemp = (orTemp - 273.15) * 9/5 + 32;
+        }
+        else if (conScale == 'C' || conScale == 'c')
+        {
+            conTemp = orTemp - 273.15;
+        }
+        else if (conScale == 'K' || conScale == 'k')
+        {
+            conTemp = orTemp;
+        }
+    else
+        {
+             printf("Please try again.\n%c is not a valid input", conScale);
+             return -1;
+        }
+    }
+    else
+    {
+         printf("\n\nPlease try again.\n%c is not a valid input", conScale);
+         return -1;
+    }
+    
+        printf("%.2f %c = %.2f %c", orTemp, orScale, conTemp, conScale);
+    
+    return 0;
+}
