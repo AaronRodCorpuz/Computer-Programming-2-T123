@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() 
+{
+
+	int i, Max, Min, N=10, X;
+
+	Max=0;
+	Min=1000;
+	for(i=1 ; i<=N ; i++)
+	{
+		printf("[%d] Input Number : " ,i);
+		scanf("%d",&X);
+		while (X <= 0)
+		{
+		    printf("\nThis is an invalid input. Try Again.");
+			printf ("\n[%d] Input number : ", i);
+		    scanf("%d", &X);
+		}
+	
+	
+	
+		if(Max < X)
+			Max = X;
+
+		if(Min > X)
+			Min = X;
+	}
+	
+	printf("\n Min : %d", Min);
+	printf("\n Max : %d", Max);
+	return 0;
+}
