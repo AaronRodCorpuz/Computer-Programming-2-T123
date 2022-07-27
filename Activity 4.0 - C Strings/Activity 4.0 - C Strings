@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char sentence[150];
+    int Vowels, Consonants;
+    
+    Vowels=Consonants=0;
+    
+    printf("Input a Sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+    
+    for (int i = 0; sentence[i] != '\0'; ++i)
+    {
+        if (sentence[i] == 'A' || sentence[i] == 'a' || 
+            sentence[i] == 'E' || sentence[i] == 'e' || 
+            sentence[i] == 'I' || sentence[i] == 'i' || 
+            sentence[i] == 'O' || sentence[i] == 'o' ||
+            sentence[i] == 'U' || sentence[i] == 'u') 
+        {
+            sentence[i] = sentence[i] - 32;
+            ++Vowels;
+        }
+        else if ((sentence[i] >= 'a' && sentence[i] <= 'z') || 
+                (sentence[i] >= 'A' && sentence[i] <= 'Z') ) 
+        {
+            ++Consonants;
+        }
+    }
+  
+    printf("String Converted: ");    
+    puts(sentence);
+    printf("String Length: %zu\n", strlen(sentence));
+    printf("Vowels: %d\n", Vowels);
+    printf("Consonants: %d", Consonants);
+    return 0;
+}
