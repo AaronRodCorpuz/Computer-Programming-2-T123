@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE * fptr;
+    
+    int i,j;
+    char str [50];
+    char Floc [50];
+    
+    printf("Input the file location: ");
+    scanf("%s", Floc);
+    fptr = fopen(Floc, "w");
+    
+    printf("Input how many lines to be appended: ");
+    scanf("%d",&j);
+    printf("\n");
+    
+   
+    for  (i = 0 ; i < j + 1; i++)
+    {
+       
+        fgets(str, sizeof str, stdin);
+        fputs(str, fptr);
+        
+    }
+    
+    fclose(fptr);
+
+    return 0;
+}
