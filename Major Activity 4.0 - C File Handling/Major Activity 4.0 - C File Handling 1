@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int AddGrades(int Math, int Science, int English);
+float DivideGrades(float sum, float average);
+
+int main()
+{
+    FILE * fptr;
+    
+    int i, n, StudentID, MathGrade, ScienceGrade, EnglishGrade, Sum;
+    float Average;
+    char StudentName[100];
+    char FileName[100] ;
+    
+    printf("Input the number of students: ");
+    scanf("%d", &n);
+	
+    
+    for(i = 0 ; i < n ; i++)
+    {
+        printf("\n(Last Name, First Name, Middle Initial)\nStudent Name: ");
+        fgets(StudentName, sizeof StudentName, stdin);
+        scanf("%[^\n]s", StudentName);
+       
+        sprintf(FileName, "Student %d.txt", i + 1);
+        fptr = fopen(FileName, "w");
+        
+            
+            printf("Student ID: ");
+            scanf("%d", &StudentID);
+             
+              printf("\n*Enter the following* ");
+        
+              printf("\nMath Grade: ");
+              scanf("%d", &MathGrade);
+        
+                printf("Science Grade: ");
+                scanf("%d", &ScienceGrade);
+        
+                  printf("English Grade: ");
+                  scanf("%d", &EnglishGrade);
+            
+            printf("\nYour Grade Average was successfully calculated!\nTo see your Grade Average, open your assigned file.\n\n");
+          
+          Sum = AddGrades(MathGrade, ScienceGrade, EnglishGrade);
+          Average = DivideGrades(Sum, Average);
+          
+          
+          fprintf(fptr, "Student Name: %s", StudentName);
+          fprintf(fptr, "\nStudent ID: %d", StudentID);
+          fprintf(fptr, "\n\nMath Grade: %d", MathGrade);
+          fprintf(fptr, "\nScience Grade: %d", ScienceGrade);
+          fprintf(fptr, "\nEnglish Grade: %d", EnglishGrade);
+          fprintf(fptr, "\n\nTotal Grade: %d", Sum);
+          fprintf(fptr, "\nGrade Average: %.2f Percent", Average);
+          
+          fclose(fptr);
+    }     
+          return 0;
+}
+    
+    int AddGrades(int Math, int Science, int English)
+    {
+        int result;
+        result = Math + Science + English;
+        return result;
+    }
+
+    float DivideGrades(float sum, float average)
+
+    {
+        float fAverage;
+        fAverage = sum / 3;
+        return fAverage;
+    }
