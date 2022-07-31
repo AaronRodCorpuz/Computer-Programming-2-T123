@@ -56,6 +56,15 @@ int main()
           fprintf(fptr, "\n\nTotal Grade: %d", Sum);
           fprintf(fptr, "\nGrade Average: %.2f Percent", Average);
           
+          //if(Average >= 75 || Average == 100)
+          //{
+              //fprintf(fptr, "\n*Passed! Keep up the good work!*");
+          //}
+          //else if (Average < 75)
+          //{
+              //fprintf(fptr, "\n*Don't be discouraged. Do better next time. :D*");
+          //}
+
           fclose(fptr);
     }     
           return 0;
@@ -75,3 +84,6 @@ int main()
         fAverage = sum / 3;
         return fAverage;
     }
+
+   
+
