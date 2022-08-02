@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+{
+    int i = 1; 
+    float Total = 0, NumCount = 0, PosNumber, Mean;
+   
+    while (1)
+    {
+        printf("[%d] Enter Integer: ", i);
+        scanf("%f", &PosNumber);
+        if (PosNumber < 0)
+        {
+            continue;
+        }
+        
+        else if (PosNumber == 0)
+        {
+            break;
+        }
+        
+        else
+        {
+            NumCount++;
+            Total += PosNumber;
+            i++;
+        }
+    }
+    
+    Mean = Total / NumCount;
+    
+    printf("Average = %.2f.", Mean);
+    return 0;
+}
