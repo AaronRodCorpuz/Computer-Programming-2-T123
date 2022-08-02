@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main()
+{
+    int i, Base, Exponent;
+    int Power = 1;
+
+    printf("Enter X: ");
+    scanf("%d", &Base);
+    printf("Enter Y: ");
+    scanf("%d", &Exponent);
+
+    if (Exponent > 0)
+    {
+        for(i = 1; i <= Exponent; i++)
+        {
+            Power = Power * Base;
+        }
+    
+        printf("%d ^ %d = %d.", Base, Exponent, Power);
+    }
+    
+    else if (Exponent < 0)
+    {
+        for(i = 0; i > Exponent; i--)
+        {
+            Power = Power * Base;
+        }
+    
+        printf("%d ^ %d = 1/%d.", Base, Exponent, Power);
+    }
+    
+    else if (Exponent == 0)
+    {
+        for(i = 1; i <= Exponent; i++)
+        {
+            Power = Power * Base;
+        }
+    
+        printf("%d ^ %d = %d.", Base, Exponent, Power);
+    }
+    
+    else
+    {
+        printf("Invalid input.");
+    }
+    return 0;
+}
